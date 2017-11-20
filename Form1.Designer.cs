@@ -97,7 +97,7 @@ namespace zeldaGui
             // 
             this.importOldLayoutToolStripMenuItem.Name = "importOldLayoutToolStripMenuItem";
             this.importOldLayoutToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.importOldLayoutToolStripMenuItem.Text = "Import old Layout";
+            this.importOldLayoutToolStripMenuItem.Text = "Import Layout";
             this.importOldLayoutToolStripMenuItem.Click += new System.EventHandler(this.importOldLayoutToolStripMenuItem_Click);
             // 
             // saveLayoutToolStripMenuItem
