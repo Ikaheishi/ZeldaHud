@@ -1061,11 +1061,15 @@ namespace zeldaGui
             config[8] = "checkupdate=" + b;
             config[9] = "background=" + currentBgr;
 
-            File.WriteAllLines("layout.config", config);
+            File.WriteAllLines(saveLayoutSaveDialog.FileName, config);
+        }
+        private void saveLayoutSaveDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            save();
         }
         private void saveLayoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            save();
+            saveLayoutSaveDialog.ShowDialog();
             uiChanged = false;
         }
 

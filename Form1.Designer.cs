@@ -1,3 +1,6 @@
+using System;
+using System.ComponentModel;
+
 namespace zeldaGui
 {
     partial class Form1
@@ -36,6 +39,7 @@ namespace zeldaGui
             this.topMostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importOldLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveLayoutSaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.clearItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showStatsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -99,6 +103,12 @@ namespace zeldaGui
             this.importOldLayoutToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.importOldLayoutToolStripMenuItem.Text = "Import Layout";
             this.importOldLayoutToolStripMenuItem.Click += new System.EventHandler(this.importOldLayoutToolStripMenuItem_Click);
+            //
+            // saveLayoutSaveDialog
+            //
+            this.saveLayoutSaveDialog.Filter = "Zelda Hud Layout Config|*.config";
+            this.saveLayoutSaveDialog.RestoreDirectory = true;
+            this.saveLayoutSaveDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveLayoutSaveDialog_FileOk);
             // 
             // saveLayoutToolStripMenuItem
             // 
@@ -195,6 +205,7 @@ namespace zeldaGui
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem topMostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveLayoutToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveLayoutSaveDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem importOldLayoutToolStripMenuItem;
