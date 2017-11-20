@@ -1,4 +1,4 @@
-﻿namespace zeldaGui
+namespace zeldaGui
 {
     partial class Form1
     {
@@ -90,7 +90,7 @@
             this.topMostToolStripMenuItem.CheckOnClick = true;
             this.topMostToolStripMenuItem.Name = "topMostToolStripMenuItem";
             this.topMostToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.topMostToolStripMenuItem.Text = "Top Most";
+            this.topMostToolStripMenuItem.Text = "Always on Top";
             this.topMostToolStripMenuItem.Click += new System.EventHandler(this.topMostToolStripMenuItem_Click);
             // 
             // importOldLayoutToolStripMenuItem
