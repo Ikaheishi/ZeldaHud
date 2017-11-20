@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +16,9 @@ namespace zeldaGui
         public bool bottle = false;
         public bool count = false;
         public bool dungeon = false;
+        public bool lit = false;
         public byte counter = 0;
-        public CustomItem(byte[] iconsId, string name, bool loop = false,bool bottle = false,bool count = false,bool dungeon = false)
+        public CustomItem(byte[] iconsId, string name, bool loop = false,bool bottle = false,bool count = false,bool dungeon = false,bool lit = false)
         {
             this.iconsId = iconsId;
             this.level = 0;
@@ -27,6 +28,7 @@ namespace zeldaGui
             this.loop = loop;
             this.count = count;
             this.dungeon = dungeon;
+            this.lit = lit;
         }
 
     }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -122,7 +122,7 @@ namespace zeldaGui
                             }
                             if (itemsArray[x, y].name != "Timer")
                             {
-                                if (itemsArray[x, y].on == true)
+                                if (itemsArray[x, y].on == true || itemsArray[x, y].lit == true)
                                 {
 
                                     g.DrawImage(iconSet[itemsArray[x, y].iconsId[itemsArray[x, y].level]], new Rectangle(x * 32, y * 32, 32, 32), 0, 0, 32, 32, GraphicsUnit.Pixel);
@@ -314,6 +314,7 @@ namespace zeldaGui
                 bool bottle = false;
                 bool count = false;
                 bool dungeon = false;
+                bool lit = false;
                 //Read character
                 if (line.Length > 1)
                 {
@@ -344,43 +345,52 @@ namespace zeldaGui
                             }
                             string last = line.Substring(end + 2);
                             string[] loopbottle = last.Split(',');
-                            if (loopbottle[0] == "false")
+                            if (loopbottle.Length > 0 && loopbottle[0] == "false")
                             {
                                 loop = false;
                             }
-                            if (loopbottle[0] == "true")
+                            if (loopbottle.Length > 0 && loopbottle[0] == "true")
                             {
                                 loop = true;
                             }
 
-                            if (loopbottle[1] == "false")
+                            if (loopbottle.Length > 1 && loopbottle[1] == "false")
                             {
                                 bottle = false;
                             }
-                            if (loopbottle[1] == "true")
+                            if (loopbottle.Length > 1 && loopbottle[1] == "true")
                             {
                                 bottle = true;
                             }
 
-                            if (loopbottle[2][0] == 'f')
+                            if (loopbottle.Length > 2 && loopbottle[2][0] == 'f')
                             {
                                 count = false;
                             }
-                            if (loopbottle[2][0] == 't')
+                            if (loopbottle.Length > 2 && loopbottle[2][0] == 't')
                             {
                                 count = true;
                             }
 
-                            if (loopbottle[3][0] == 'f')
+                            if (loopbottle.Length > 3 && loopbottle[3][0] == 'f')
                             {
                                 dungeon = false;
                             }
-                            if (loopbottle[3][0] == 't')
+                            if (loopbottle.Length > 3 && loopbottle[3][0] == 't')
                             {
                                 dungeon = true;
                             }
-                            CustomItem ci = new CustomItem(order, name, loop, bottle, count, dungeon);
-                            if (count == true)
+
+                            if (loopbottle.Length > 4 && loopbottle[4][0] == 'f')
+                            {
+                                lit = false;
+                            }
+                            if (loopbottle.Length > 4 && loopbottle[4][0] == 't')
+                            {
+                                lit = true;
+                            }
+                            CustomItem ci = new CustomItem(order, name, loop, bottle, count, dungeon, lit);
+                            if (count == true || lit == true)
                             {
                                 ci.on = true;
                             }
