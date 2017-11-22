@@ -698,7 +698,7 @@ namespace zeldaGui
                                 }
                                 else if (itemsArray[mX, mY].level == 0)
                                 {
-                                    if (itemsArray[mX, mY].loop == false)
+                                    if (itemsArray[mX, mY].loop == false && itemsArray[mX, mY].lit == false)
                                     {
                                         itemsArray[mX, mY].on = false;
                                     }
