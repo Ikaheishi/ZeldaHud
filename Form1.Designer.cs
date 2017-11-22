@@ -32,6 +32,7 @@ namespace zeldaGui
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,9 +40,9 @@ namespace zeldaGui
             this.topMostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importOldLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveLayoutSaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.clearItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showStatsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveLayoutSaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -103,12 +104,6 @@ namespace zeldaGui
             this.importOldLayoutToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.importOldLayoutToolStripMenuItem.Text = "Import Layout";
             this.importOldLayoutToolStripMenuItem.Click += new System.EventHandler(this.importOldLayoutToolStripMenuItem_Click);
-            //
-            // saveLayoutSaveDialog
-            //
-            this.saveLayoutSaveDialog.Filter = "Zelda Hud Layout Config|*.config";
-            this.saveLayoutSaveDialog.RestoreDirectory = true;
-            this.saveLayoutSaveDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveLayoutSaveDialog_FileOk);
             // 
             // saveLayoutToolStripMenuItem
             // 
@@ -130,6 +125,12 @@ namespace zeldaGui
             this.showStatsToolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
             this.showStatsToolStripMenuItem1.Text = "Show Stats";
             this.showStatsToolStripMenuItem1.Click += new System.EventHandler(this.showStatsToolStripMenuItem1_Click);
+            // 
+            // saveLayoutSaveDialog
+            // 
+            this.saveLayoutSaveDialog.Filter = "Zelda Hud Layout Config|*.config";
+            this.saveLayoutSaveDialog.RestoreDirectory = true;
+            this.saveLayoutSaveDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveLayoutSaveDialog_FileOk);
             // 
             // pictureBox1
             // 
@@ -161,10 +162,10 @@ namespace zeldaGui
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("DS-Digital", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(114, -26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 27);
+            this.label1.Size = new System.Drawing.Size(92, 31);
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
             this.label1.Visible = false;
@@ -182,6 +183,7 @@ namespace zeldaGui
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
