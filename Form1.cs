@@ -179,7 +179,6 @@ namespace zeldaGui
                     objt = timeended.Subtract(timestarted);
                 }
 
-                //g.DrawString(objt.Hours.ToString("D2") + ":" + objt.Minutes.ToString("D2") + ":" + objt.Seconds.ToString("D2"), label1.Font, Brushes.White, new Point(timerpospixel.X - 2, timerpospixel.Y + 4));
                 drawTime(g,objt);
             }
             
@@ -436,7 +435,6 @@ namespace zeldaGui
         DateTime timeended;
         bool timerend = false;
         bool uiChanged = false;
-        //private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             int mX = (e.X / 32);
@@ -472,7 +470,6 @@ namespace zeldaGui
                                     timeended = DateTime.Now;
                                     timerend = true;
                                 }
-                                //if (itemsArray)
                                 if (itemsArray[mX, mY].bottle)
                                 {
                                     if (itemsArray[mX,mY].level == 0)
@@ -491,7 +488,6 @@ namespace zeldaGui
                                 {
                                     itemsArray[mX, mY].level++;
                                 }
-                                //drawIcons();
                             }
                             else
                             {
@@ -534,7 +530,6 @@ namespace zeldaGui
                                 timerend = true;
                             }
                                 itemsArray[mX, mY].on = true;
-                            //drawIcons();
                         }
                         TimeSpan objt = DateTime.Now.Subtract(timestarted);
                         if (itemsArray[mX, mY].loop == false)
@@ -683,12 +678,7 @@ namespace zeldaGui
                 }
             }
         }
-
-        
-
-
-
-
+       
         public void autoUpdateHud()
         {
             if (autoUpdate == true)
@@ -782,7 +772,6 @@ namespace zeldaGui
                             {
                                 itemsList[i].on = false;
                                 itemsList[i].level = 0;
-                                //itemsList[i].level = (byte)(buffer[i]-1);
                             }
                         }
                         itemsList[51].on = true;
@@ -993,9 +982,7 @@ namespace zeldaGui
                 {
                     currentBgr = s[9].Split('=')[1];
                 }
-
-
-
+                
                 int p = 0;
                 for (int x = 0; x < 24; x++)
                 {
@@ -1048,34 +1035,8 @@ namespace zeldaGui
             if (openFileDialog2.ShowDialog() == DialogResult.Cancel)
             {
 
-            }
-            else
+            } else
             {
-                /*string[] s = File.ReadAllLines(openFileDialog2.FileName);
-
-                int w = Convert.ToInt32(s[0].Split('=')[1]);
-                int h = Convert.ToInt32(s[1].Split('=')[1]);
-                string[] itl = s[3].Split('=')[1].Split(',');
-                int p = 0;
-                for (int x = 0; x < w; x++)
-                {
-                    for (int y = 0; y < h; y++)
-                    {
-                        if (Convert.ToInt32(itl[p]) != 254)
-                        {
-                            itemsArray[x, y] = itemsList[Convert.ToInt32(itl[p])];
-                        }
-                        else
-                        {
-                            itemsArray[x, y] = null;
-                        }
-                        p++;
-                    }
-                }
-                        this.Size = new Size((w*32) + 16, ((h+1)*32) + 7);
-                widthIcons = (byte)(w);
-                heightIcons = (byte)((h) - 1);*/
-
                 loadLayout(openFileDialog2.FileName);
                 drawIcons();
             }
@@ -1125,7 +1086,6 @@ namespace zeldaGui
                 string[] ss = item_found[i].Split(' ');
                 g.DrawImage(bgr, new Point(x*72, y*24));
                 g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-//                g.DrawImage(iconSet[Convert.ToInt32(ss[0])],new Rectangle((x*72)+2,(y*24)+4,16,16),0,0,32,32,GraphicsUnit.Pixel);
                 g.DrawString(s, new Font(label1.Font, FontStyle.Regular),Brushes.White,new PointF((x*72)+20,(y*24)+05));
                 x++;
                 if (x >= 4)
