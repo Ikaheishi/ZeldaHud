@@ -65,7 +65,8 @@ namespace zeldaGui
         public void loadIconsSet(string data)
         {
             string[] icons = Directory.GetFiles(data);
-            foreach(string f in icons)
+            iconSet = new Dictionary<string, Bitmap>();
+            foreach (string f in icons)
             {
                 if (File.Exists(f))
                 {
@@ -1050,8 +1051,12 @@ namespace zeldaGui
                 {
                     if (itemsArray[x, y] != null)
                     {
-                        itemsArray[x, y].on = false;
+                        itemsArray[x, y].on = itemsArray[x, y].lit;
                         itemsArray[x, y].level = 0;
+                        if (itemsArray[x, y].count && itemsArray[x, y].counter > 0)
+                        {
+                            itemsArray[x, y].counter = 0;
+                        }
                     }
                 }
             }

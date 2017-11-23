@@ -65,20 +65,20 @@ namespace zeldaGui
             this.clearItemsToolStripMenuItem,
             this.showStatsToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 180);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(164, 202);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.CheckOnClick = true;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem1.Text = "Edit Mode";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(198, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem2.Text = "Options";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -86,7 +86,7 @@ namespace zeldaGui
             // 
             this.toolStripMenuItem3.CheckOnClick = true;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(198, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItem3.Text = "AutoUpdate";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
@@ -94,35 +94,35 @@ namespace zeldaGui
             // 
             this.topMostToolStripMenuItem.CheckOnClick = true;
             this.topMostToolStripMenuItem.Name = "topMostToolStripMenuItem";
-            this.topMostToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.topMostToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.topMostToolStripMenuItem.Text = "Always on Top";
             this.topMostToolStripMenuItem.Click += new System.EventHandler(this.topMostToolStripMenuItem_Click);
             // 
             // importOldLayoutToolStripMenuItem
             // 
             this.importOldLayoutToolStripMenuItem.Name = "importOldLayoutToolStripMenuItem";
-            this.importOldLayoutToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.importOldLayoutToolStripMenuItem.Text = "Import Layout";
+            this.importOldLayoutToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.importOldLayoutToolStripMenuItem.Text = "Load Layout";
             this.importOldLayoutToolStripMenuItem.Click += new System.EventHandler(this.importOldLayoutToolStripMenuItem_Click);
             // 
             // saveLayoutToolStripMenuItem
             // 
             this.saveLayoutToolStripMenuItem.Name = "saveLayoutToolStripMenuItem";
-            this.saveLayoutToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.saveLayoutToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.saveLayoutToolStripMenuItem.Text = "Save Layout";
             this.saveLayoutToolStripMenuItem.Click += new System.EventHandler(this.saveLayoutToolStripMenuItem_Click);
             // 
             // clearItemsToolStripMenuItem
             // 
             this.clearItemsToolStripMenuItem.Name = "clearItemsToolStripMenuItem";
-            this.clearItemsToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.clearItemsToolStripMenuItem.Text = "Set all items unchecked";
+            this.clearItemsToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.clearItemsToolStripMenuItem.Text = "Reset all Trackers";
             this.clearItemsToolStripMenuItem.Click += new System.EventHandler(this.clearItemsToolStripMenuItem_Click);
             // 
             // showStatsToolStripMenuItem1
             // 
             this.showStatsToolStripMenuItem1.Name = "showStatsToolStripMenuItem1";
-            this.showStatsToolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
+            this.showStatsToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
             this.showStatsToolStripMenuItem1.Text = "Show Stats";
             this.showStatsToolStripMenuItem1.Click += new System.EventHandler(this.showStatsToolStripMenuItem1_Click);
             // 
