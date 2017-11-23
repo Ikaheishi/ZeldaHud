@@ -8,7 +8,7 @@ namespace zeldaGui
 {
     public class CustomItem
     {
-        public byte[] iconsId;
+        public string[] iconsId;
         public byte level;
         public bool on;
         public string name;
@@ -18,7 +18,7 @@ namespace zeldaGui
         public bool dungeon = false;
         public bool lit = false;
         public byte counter = 0;
-        public CustomItem(byte[] iconsId, string name, bool loop = false,bool bottle = false,bool count = false,bool dungeon = false,bool lit = false)
+        public CustomItem(string[] iconsId, string name, bool loop = false,bool bottle = false,bool count = false,bool dungeon = false,bool lit = false)
         {
             this.iconsId = iconsId;
             this.level = 0;

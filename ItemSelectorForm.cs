@@ -33,11 +33,18 @@ namespace zeldaGui
 
         private void ItemSelectorForm_Load(object sender, EventArgs e)
         {
-            imageList1.Images.AddRange(Form1.iconSet);
+            imageList1.Images.AddRange(Form1.iconSet.Values.ToArray());
             listView1.LargeImageList = imageList1;
             for (int i = 0; i < Form1.itemsList.Count; i++)
             {
-                listView1.Items.Add(Form1.itemsList[i].name, Form1.itemsList[i].iconsId[0]);
+                for (int j = 0; j < Form1.iconSet.Count; j++)
+                {
+                    if (Form1.iconSet.Keys.ToArray()[j] == Form1.itemsList[i].iconsId[0])
+                    {
+                        listView1.Items.Add(Form1.itemsList[i].name, j);
+                        break;
+                    }
+                }
             }
         }
 

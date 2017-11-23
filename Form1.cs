@@ -56,22 +56,30 @@ namespace zeldaGui
             }
 
         }
-        int nbrIcons = 74;
-        public static Bitmap[] iconSet;
+
+        public static Bitmap[] iconSetx;
+        public static Dictionary<string, Bitmap> iconSet = new Dictionary<string, Bitmap>();
         public Bitmap globalTimer = new Bitmap("IconsSets\\Global\\timer.png");
         public Bitmap globalCount = new Bitmap("IconsSets\\Global\\count.png");
         
         public void loadIconsSet(string data)
         {
-            nbrIcons = Directory.GetFiles(data).Length;
-
-            iconSet = new Bitmap[nbrIcons];
-            for (int i = 0;i<nbrIcons;i++)
+            string[] icons = Directory.GetFiles(data);
+            foreach(string f in icons)
             {
-                if (File.Exists(data + "\\" + i.ToString("D4") + ".png"))
+                if (File.Exists(f))
                 {
-                    iconSet[i] = new Bitmap(data + "\\" + i.ToString("D4") + ".png");
-                    iconSet[i].MakeTransparent(Color.Fuchsia);
+                    string filename = Path.GetFileName(f);
+                    string filenum = filename.Replace(".png", "").PadLeft(4, '0');
+                    iconSet.Add(filename, new Bitmap(f));
+                    iconSet[filename].MakeTransparent(Color.Fuchsia);
+                    int intval;
+                    int.TryParse(filenum, out intval);
+                    if (intval > 0)
+                    {
+                        iconSet.Add(intval + "", new Bitmap(f));
+                        iconSet[intval + ""].MakeTransparent(Color.Fuchsia);
+                    }
                 }
             }
             if (currentBgr != "None")
@@ -247,157 +255,44 @@ namespace zeldaGui
 
         public void addItems()
         {
-            /* itemsList.Add(new CustomItem(new byte[] { 0, 48, 49, 49 }, "Bow"));//Bow 0
-             itemsList.Add(new CustomItem(new byte[] { 1 }, "Blue Boomerang"));//Blue Boomerang 1
-             itemsList.Add(new CustomItem(new byte[] { 2 }, "HookShot"));//Hookshot 2
-             itemsList.Add(new CustomItem(new byte[] { 3 }, "Bombs"));//Bombs 3
-             itemsList.Add(new CustomItem(new byte[] { 4, 56 }, "Mushroom"));//Mushroom 4
-             itemsList.Add(new CustomItem(new byte[] { 5 }, "Fire Rod"));//Fire Rod 5
-             itemsList.Add(new CustomItem(new byte[] { 6 }, "Ice Rod"));//Ice Rod 6
-             itemsList.Add(new CustomItem(new byte[] { 7 }, "Bombos"));//Bombos 7
-             itemsList.Add(new CustomItem(new byte[] { 8 }, "Ether"));//Ether 8 
-             itemsList.Add(new CustomItem(new byte[] { 9 }, "Quake"));//Quake 9
-             itemsList.Add(new CustomItem(new byte[] { 10 }, "Lamp"));//Lamp 10
-             itemsList.Add(new CustomItem(new byte[] { 11 }, "Hammer"));//Hammer  11
-             itemsList.Add(new CustomItem(new byte[] { 12, 57 }, "Shovel"));//Shovel 12
-             itemsList.Add(new CustomItem(new byte[] { 13 }, "Net"));//Net 13 
-             itemsList.Add(new CustomItem(new byte[] { 14 }, "Book"));//Book 14
-             itemsList.Add(new CustomItem(new byte[] { 15 }, "Cane Somaria"));//Cane Somaria 15
-             itemsList.Add(new CustomItem(new byte[] { 16 }, "Cane of Byrna"));//Cane Byrna 16
-             itemsList.Add(new CustomItem(new byte[] { 17 }, "Cape"));//Cape 17
-             itemsList.Add(new CustomItem(new byte[] { 18, 18 }, "Mirror"));//Mirror 18
-             itemsList.Add(new CustomItem(new byte[] { 19, 43 }, "Power Glove"));//Power Glove 19
-             itemsList.Add(new CustomItem(new byte[] { 20 }, "Boots"));//Boots 20
-             itemsList.Add(new CustomItem(new byte[] { 21 }, "Flippers"));//Flippers 21
-             itemsList.Add(new CustomItem(new byte[] { 22 }, "Moon Pearl"));//MoonPearl 22
-             itemsList.Add(new CustomItem(new byte[] { 23, 38, 39, 40 }, "Sword"));//Sword 23
-             itemsList.Add(new CustomItem(new byte[] { 24, 44, 45 }, "Shield"));//Shield 24
-             itemsList.Add(new CustomItem(new byte[] { 25, 41, 42 }, "Tunic"));//Tunic //25
-             itemsList.Add(new CustomItem(new byte[] { 26, 26, 50, 51, 52, 53, 54, 54 }, "Bottle 1",false,true));//Bottle1 26
-             itemsList.Add(new CustomItem(new byte[] { 26, 26, 50, 51, 52, 53, 54, 54 }, "Bottle 2",false,true));//Bottle2 27
-             itemsList.Add(new CustomItem(new byte[] { 26, 26, 50, 51, 52, 53, 54, 54 }, "Bottle 3",false,true));//Bottle3 28
-             itemsList.Add(new CustomItem(new byte[] { 26, 26, 50, 51, 52, 53, 54, 54 }, "Bottle 4",false,true));//Bottle4 29
-             itemsList.Add(new CustomItem(new byte[] { 27 }, "Eastern Pendant"));//Eastern (Green) //30
-             itemsList.Add(new CustomItem(new byte[] { 28 }, "Desert Pendant"));//Desert (Blue) 31
-             itemsList.Add(new CustomItem(new byte[] { 29 }, "Hera Pendant"));//Hera (Red) 32
-             itemsList.Add(new CustomItem(new byte[] { 30 }, "Crystal 1"));//Crystal 1  33 pod
-             itemsList.Add(new CustomItem(new byte[] { 31 }, "Crystal 2"));//Crystal 2  34 swamp
-             itemsList.Add(new CustomItem(new byte[] { 32 }, "Crystal 3"));//Crystal 3 35 sw
-             itemsList.Add(new CustomItem(new byte[] { 33 }, "Crystal 4"));//Crystal 4 36 tt
-             itemsList.Add(new CustomItem(new byte[] { 34 }, "Crystal 5"));//Crystal 5 37 ice
-             itemsList.Add(new CustomItem(new byte[] { 35 }, "Crystal 6"));//Crystal 6 38 mm
-             itemsList.Add(new CustomItem(new byte[] { 36 }, "Crystal 7"));//Crystal 7 //39 trock
-             itemsList.Add(new CustomItem(new byte[] { 37 }, "Red Boomerang"));//Red Boomerang 40
-             itemsList.Add(new CustomItem(new byte[] { 46 }, "Powder"));//Powder 41
-             itemsList.Add(new CustomItem(new byte[] { 47 }, "Flute"));//Flute 42
-             itemsList.Add(new CustomItem(new byte[] { 55 }, "Agahnim"));//Agahnim //43
-             itemsList.Add(new CustomItem(new byte[] { 58, 59 }, "Chest"));//Agahnim //44
-             itemsList.Add(new CustomItem(new byte[] { 60 }, "Sanc Heart"));//Agahnim //45
-             itemsList.Add(new CustomItem(new byte[] { 61 }, "Item Id 61"));//Agahnim //46
-             itemsList.Add(new CustomItem(new byte[] { 62 }, "Item Id 62"));//Agahnim //47
-             itemsList.Add(new CustomItem(new byte[] { 63 }, "Item Id 63"));//Agahnim //48
-             itemsList.Add(new CustomItem(new byte[] { 64 }, "Item Id 64"));//Agahnim //49
-             itemsList.Add(new CustomItem(new byte[] { 65 }, "Item Id 65"));//Agahnim //50
-             itemsList.Add(new CustomItem(new byte[] { 66,67,68,69 }, "Heart Pieces",true));//Agahnim //51
-             itemsList.Add(new CustomItem(new byte[] { 70, 71, 72, 73 }, "Bottle Counter"));//Agahnim //52
-             itemsList.Add(new CustomItem(new byte[] { 26, 71, 72, 73 }, "Bottle Counter2"));//Agahnim //53*/
-
-            //itemsList[51].on = true;
-
             string[] s = File.ReadAllLines("itemlist.txt");
 
             foreach(string line in s)
             {
                 string name = "";
-                byte[] order = new byte[0];
+                string[] order = new string[0];
                 bool loop = false;
                 bool bottle = false;
                 bool count = false;
                 bool dungeon = false;
                 bool lit = false;
-                //Read character
-                if (line.Length > 1)
+                Regex regex = new Regex(@":([-\w\s\d]+),{([\w\d.,]+)},([\w,]+);");
+                Match match = regex.Match(line);
+                if(match.Success)
                 {
-                    if (line[0] == '/' && line[1] == '/')//skip line
+                    name = match.Groups[1].Value;
+
+                    string[] ords = match.Groups[2].Value.Split(',');
+                    order = new string[ords.Length];
+                    for (int i = 0; i < ords.Length; i++)
                     {
-
+                        order[i] = ords[i];
                     }
-                    else
+
+                    string[] flags = match.Groups[3].Value.Split(',');
+
+                    loop = flags.Length > 0 && flags[0] == "true";
+                    bottle = flags.Length > 1 && flags[1] == "true";
+                    count = flags.Length > 2 && flags[2] == "true";
+                    dungeon = flags.Length > 3 && flags[3] == "true";
+                    lit = flags.Length > 4 && flags[4] == "true";
+
+                    CustomItem ci = new CustomItem(order, name, loop, bottle, count, dungeon, lit);
+                    if (count == true || lit == true)
                     {
-                        if (line[0] == ':')
-                        {
-                            for (int i = 1; i < line.Length; i++)//name
-                            {
-                                if (line[i] == ',')
-                                {
-                                    break;
-                                }
-                                name += line[i];
-                            }
-                            int sta = line.IndexOf('{')+1;
-                            int end = line.IndexOf('}');
-                            string ord = line.Substring(sta, end - sta);
-                            string[] ords = ord.Split(',');
-                            order = new byte[ords.Length];
-                            for (int i = 0; i < ords.Length; i++)
-                            {
-                                order[i] = Convert.ToByte(ords[i]);
-                            }
-                            string last = line.Substring(end + 2);
-                            string[] loopbottle = last.Split(',');
-                            if (loopbottle.Length > 0 && loopbottle[0] == "false")
-                            {
-                                loop = false;
-                            }
-                            if (loopbottle.Length > 0 && loopbottle[0] == "true")
-                            {
-                                loop = true;
-                            }
-
-                            if (loopbottle.Length > 1 && loopbottle[1] == "false")
-                            {
-                                bottle = false;
-                            }
-                            if (loopbottle.Length > 1 && loopbottle[1] == "true")
-                            {
-                                bottle = true;
-                            }
-
-                            if (loopbottle.Length > 2 && loopbottle[2][0] == 'f')
-                            {
-                                count = false;
-                            }
-                            if (loopbottle.Length > 2 && loopbottle[2][0] == 't')
-                            {
-                                count = true;
-                            }
-
-                            if (loopbottle.Length > 3 && loopbottle[3][0] == 'f')
-                            {
-                                dungeon = false;
-                            }
-                            if (loopbottle.Length > 3 && loopbottle[3][0] == 't')
-                            {
-                                dungeon = true;
-                            }
-
-                            if (loopbottle.Length > 4 && loopbottle[4][0] == 'f')
-                            {
-                                lit = false;
-                            }
-                            if (loopbottle.Length > 4 && loopbottle[4][0] == 't')
-                            {
-                                lit = true;
-                            }
-                            CustomItem ci = new CustomItem(order, name, loop, bottle, count, dungeon, lit);
-                            if (count == true || lit == true)
-                            {
-                                ci.on = true;
-                            }
-                            itemsList.Add(ci);
-
-                        }
+                        ci.on = true;
                     }
+                    itemsList.Add(ci);
                 }
             }
         }
@@ -1106,7 +1001,7 @@ namespace zeldaGui
                 {
                     for (int y = 0; y < 24; y++)
                     {
-                        if (Convert.ToInt32(itl[p]) != -1)
+                        if (Convert.ToInt32(itl[p]) != -1 && Convert.ToInt32(itl[p]) < itemsList.Count)
                         {
                             itemsArray[x, y] = itemsList[Convert.ToInt32(itl[p])];
                         }
@@ -1230,7 +1125,7 @@ namespace zeldaGui
                 string[] ss = item_found[i].Split(' ');
                 g.DrawImage(bgr, new Point(x*72, y*24));
                 g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-                g.DrawImage(iconSet[Convert.ToInt32(ss[0])],new Rectangle((x*72)+2,(y*24)+4,16,16),0,0,32,32,GraphicsUnit.Pixel);
+//                g.DrawImage(iconSet[Convert.ToInt32(ss[0])],new Rectangle((x*72)+2,(y*24)+4,16,16),0,0,32,32,GraphicsUnit.Pixel);
                 g.DrawString(s, new Font(label1.Font, FontStyle.Regular),Brushes.White,new PointF((x*72)+20,(y*24)+05));
                 x++;
                 if (x >= 4)
